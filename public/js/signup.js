@@ -1,4 +1,4 @@
-console.log("Linked ot")
+
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
