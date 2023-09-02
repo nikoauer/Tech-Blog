@@ -2,6 +2,7 @@
 const router = require("express").Router();
 const { User } = require("../../models/index");
 
+// route responsible for signup a user from front end request
 router.post("/", async (req, res) => {
   try {
     const { username, email, password } = req.body;
@@ -25,6 +26,7 @@ router.post("/", async (req, res) => {
     }
 });
 
+// route responsible for retrieving front end fetch request and checking it password/email 
 router.post('/login', async (req, res) => {
   try {
     const userLogin = await User.findOne({ where: { email: req.body.email } });
@@ -51,5 +53,17 @@ router.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Error logging in' });
   }
   });
+
+  // route logs out the user
+  router.post('/logout', function logout(req, res) {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
+    }
+  });
+  
 
 module.exports = router;
