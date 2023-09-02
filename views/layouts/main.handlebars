@@ -3,13 +3,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/style.css" />
-    <title>Document</title>
+    <title>TECHademy</title>
   </head>
   <body>
-    <header>
+  <nav class="header">
+    <text class="logo">TECHademy</text>
+    <div class="header-right">
+      <a href="/">Home</a>
+      <a href="/">Dashboard</a>
+      {{#if logged_in}}
+      <a id="logout" href="/">Logout</a>
+      {{else}}
       <a href="/login">Login</a>
-      <a href="/signup">Signup</a>
-    </header>
+      {{/if}}
+    </div>
+  </nav>
     <main>
       {{{body}}}
     </main>
