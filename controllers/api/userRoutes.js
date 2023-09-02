@@ -1,19 +1,27 @@
 //localhost:3001/api/users
 const router = require("express").Router();
-const { User } = require("../../models");
+const { User } = require("../../models/index");
 
 router.post("/", async (req, res) => {
-    try {
-        console.log("Api endpoint piged to add user");
-        const newUser = await User.create(req.body);
-        req.session.save(() => {
-          req.session.user_id = newUser.id;
-          req.session.logged_in = true;
-      
-          res.status(200).json(newUser);
-        });
+  try {
+    const { username, email, password } = req.body;
+
+    const newUser = await User.create({
+      username,
+      email,
+      password,
+    });
+
+    req.session.save(() => {
+      req.session.user_id = newUser.id;
+      req.session.logged_in = true;
+      res.status(200).json({ message: 'New user created!'});
+    });
+
+  console.log("successfully sign up", newUser);
     } catch (error) {
-        console.log(error)
+      console.error(error);
+      res.status(500).json({ message: 'You have an error'});
     }
 });
 
