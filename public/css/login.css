@@ -65,7 +65,7 @@
 
   .form a{
     font-size: 16px;
-    color: #32abe8;
+    color: rgb(59, 123, 80);
     text-decoration: none;
   }
   .form a:hover{
@@ -74,7 +74,7 @@
 
   button {
     color: #fff;
-    background: hsl(204, 100%, 40%);
+    background: rgb(59, 123, 80);
     font-size:1.5rem;
     font-weight: 500;
     letter-spacing: 2px;
@@ -87,7 +87,7 @@
   }
 
   .form button:hover{
-    background: #00488b;
+    background:  rgb(1, 158, 46);
   }
 
   .signup{
@@ -102,7 +102,7 @@
   }
 
   .signup label{
-    color: #027fd2;
+    color: rgb(59, 123, 80);
     cursor: pointer;
   }
 
