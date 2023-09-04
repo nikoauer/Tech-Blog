@@ -1,9 +1,35 @@
 const router = require('express').Router();
+const { Blogpost, User, Comments } = require('../models/index')
 
 //localhost:3001/
-router.get('/', (req, res) => {
-    res.render('home')
-})
+router.get('/', async (req, res) => {
+    try {
+      const Blogpostdata = await Blogpost.findAll({
+        include: [
+          {
+            model: User,
+            attributes: ['name'],
+          },
+        ],
+      });
+  
+      // Serialize data so the template can read it
+      const Blogposts = Blogpostdata.map((blogpost) => blogpost.get({ plain: true }));
+  
+      // Pass serialized data and session flag into template
+      res.render('home', { 
+        Blogposts, 
+        logged_in: req.session.logged_in 
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
+
+
+// router.get('/', (req, res) => {
+//     res.render('home')
+// })
 
 router.get('/login', (req, res) => {
     res.render('login')
