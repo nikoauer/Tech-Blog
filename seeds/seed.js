@@ -19,7 +19,7 @@ const seedData = async () => {
         });
       }
       process.exit(0);
-      console.log("success this worked")
+      console.log("success this worked");
 }
 
 seedData();
