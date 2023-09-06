@@ -1,4 +1,12 @@
+<link rel="stylesheet" href="./css/home.css" />
+
 {{#each Blogposts as |blogpost|}}
-<h2>{{blogpost.title}}</h2>
-<p>{{blogpost.description}}</p>
+  <div class="spacing">
+    <div class="center">
+      <div class="title">
+        <h2>{{blogpost.title}}</h2>
+      </div>
+      <p>{{blogpost.description}}</p>
+    </div>
+  </div>
 {{/each}}

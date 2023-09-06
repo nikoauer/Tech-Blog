@@ -1,0 +1,16 @@
+.center {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .spacing {
+    margin: 15px;
+  }
+
+  .title {
+    text-decoration: underline rgb(117, 117, 117) 2px;
+  }
