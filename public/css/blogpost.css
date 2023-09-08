@@ -1,0 +1,81 @@
+.center {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .date {
+    font-size: small;
+    display:inline-block;
+  }
+
+  .username {
+    font-size: small;
+    display:inline-block;
+  }
+
+  #blogpost {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  #addComment {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+    border: solid rgb(179, 179, 179) ;
+  }
+
+  button {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(184, 184, 184);
+  }
+
+  button:hover {
+    background-color: rgb(1, 158, 46);
+    color: rgb(255, 255, 255);
+  }
+
+  #add-comment {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .Comments {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+
+  .commentDate {
+    font-size: small;
+  }
+
+  #commentTitle {
+    text-align: center;
+  }
+
+  .commentSpace {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }

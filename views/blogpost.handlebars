@@ -1,27 +1,30 @@
-<link rel="stylesheet" href="./css/blogpost.css" />
-<div>
-  <h2>
-    <h1>{{title}}</h1>
-  <p>{{format_date date_created}}</p>
-  <p> Written by {{user.username}}</p>
-  <p>{{description}}</p>
+<link rel="stylesheet" href="/css/blogpost.css" />
+<div id="blogpost">
+    <div class="center">
+    <h2>
+        <h1>{{title}}</h1>
+            <p class="username"> Written by {{user.username}}</p>
+            <p class="date">{{format_date date_created}}</p>
+            <p>{{description}}</p>
+    </div>
 </div>
-<div>
+
+<div id="addComment">
   {{#if logged_in}}
     <form id="add-comment">
-      <input type="text" id="description" />
-      <button type="submit">Add Comment</button>
+      <input type="text" id="description" placeholder="Add a comment"/>
+      <button type="submit">Comment</button>
     </form>
     <script src ="/js/add-comment.js"></script>
   {{/if}}
 </div>
 
-<div>
-  <h3>Comments:</h3>
+<h2 id="commentTitle">Comments</h2>
   {{#each Comments}}
-    <div>
-      <p>{{description}}</p>
-      <p>Posted by {{user.username}} {{format_date date_created}}</p>
+  <div class="commentSpace">
+    <div class="Comments">
+        <p>{{description}}</p>
+        <p class="commentDate">Posted by {{user.username}} {{format_date date_created}}</p>
     </div>
-  {{/each}}
 </div>
+ {{/each}}
