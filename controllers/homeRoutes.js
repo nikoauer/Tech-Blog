@@ -21,7 +21,7 @@ router.get('/', async (req, res) => {
   });
 
 
-router.get('blogpost/:id', async (req, res) => {
+router.get('/blogpost/:id', async (req, res) => {
   try {
     const Blogpostdata = await Blogpost.findByPk(req.params.id, {
       include: [
@@ -29,16 +29,24 @@ router.get('blogpost/:id', async (req, res) => {
           model: User,
           attributes: ['username'],
         },
+      {
+        model:Comments,
+        include : {
+          model: User
+        }
+      }
       ],
     });
 
     const Blogposts = Blogpostdata.get({ plain: true });
-
+    console.log(`=======================================================\n==============================================`)
+    console.log(Blogposts.Comments)
     res.render('blogpost', {
       ...Blogposts,
       logged_in: req.session.logged_in
     });
   } catch (err) {
+    console.log(err)
     res.status(500).json(err);
   }
 });

@@ -1,7 +1,16 @@
 <div>
-    <h2>
-        hello world
-     <a href="/blogpost/{{blogpost.id}}">{{blogpost.title}}</a>
-    </h2>
-    <p>{{format_date blogpost.date_created}}</p>
+  <h2>
+    <h1>{{title}}</h1>
+  </h2>
+  <p>{{format_date date_created}}</p>
+  <p> Written by {{user.username}}</p>
+</div>
+<div>
+  {{#if logged_in}}
+    <form id="add-comment">
+      <input type="text" id="description" />
+      <button type="submit">Add Comment</button>
+    </form>
+    <script src ="/js/add-comment.js"></script>
+  {{/if}}
 </div>
