@@ -1,7 +1,8 @@
 document.getElementById('add-comment').addEventListener('submit', handleAddComment);
+
 console.log(window.location)
 var Blogpost_id = window.location.pathname.split("/")[2]
-console.log(Blogpost_id)
+
 async function handleAddComment(event) {
     event.preventDefault();
 

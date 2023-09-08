@@ -4,13 +4,12 @@ const router = require("express").Router()
 
 router.post("/", withAuth, async(req,res)=>{
     try {
-        console.log(`=======================================================\n==============================================`)
         const newComment = await Comments.create({...req.body, user_id: req.session.user_id})
         console.log(newComment)
         res.json(newComment)
     } catch (error) {
         console.log(error)
-        res.status(400).json("You suck")
+        res.status(400).json("Backend Comment post not working")
     }
 
 })

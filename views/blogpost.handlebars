@@ -1,9 +1,10 @@
+<link rel="stylesheet" href="./css/blogpost.css" />
 <div>
   <h2>
     <h1>{{title}}</h1>
-  </h2>
   <p>{{format_date date_created}}</p>
   <p> Written by {{user.username}}</p>
+  <p>{{description}}</p>
 </div>
 <div>
   {{#if logged_in}}
@@ -13,4 +14,14 @@
     </form>
     <script src ="/js/add-comment.js"></script>
   {{/if}}
+</div>
+
+<div>
+  <h3>Comments:</h3>
+  {{#each Comments}}
+    <div>
+      <p>{{description}}</p>
+      <p>Posted by {{user.username}} {{format_date date_created}}</p>
+    </div>
+  {{/each}}
 </div>

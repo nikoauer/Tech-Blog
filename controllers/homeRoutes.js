@@ -32,7 +32,8 @@ router.get('/blogpost/:id', async (req, res) => {
       {
         model:Comments,
         include : {
-          model: User
+          model: User,
+          attributes: ['username'],
         }
       }
       ],
@@ -40,7 +41,6 @@ router.get('/blogpost/:id', async (req, res) => {
 
     const Blogposts = Blogpostdata.get({ plain: true });
     console.log(`=======================================================\n==============================================`)
-    console.log(Blogposts.Comments)
     res.render('blogpost', {
       ...Blogposts,
       logged_in: req.session.logged_in
