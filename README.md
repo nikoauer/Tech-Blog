@@ -26,7 +26,7 @@ Then run node.server.js if you wish to run the program on your own personal serv
 
 ## Usage
 
-Link to live page: 
+Link to live page: https://glacial-mountain-10223-54ff428b08c6.herokuapp.com/
 
 ![alt text](screenshots/screenshot1.png)
 ![alt text](screenshots/screenshot2.png)
