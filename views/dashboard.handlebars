@@ -1,0 +1,34 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Post Form</title>
+  </head>
+
+  <body>
+    {{#each Posts as |post|}}
+      <div>
+        <h2>{{title}}</h2>
+        <p>{{description}}</p>
+      </div>
+    {{/each}}
+
+    <button id="add-post-button">Add Post</button>
+
+    <div id="post-form" style="display:none;">
+      <form id="blogpost-form">
+        <label for="title">Title:</label>
+        <input type="text" id="title" required /><br /><br />
+
+        <label for="description">Content:</label><br />
+        <textarea id="description" rows="6" cols="70" required></textarea><br /><br
+        />
+
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
+
+  </body>
+  <script src="/js/add-blogpost.js"></script>
+</html>

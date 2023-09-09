@@ -10,7 +10,7 @@
     <text class="logo">TECHademy</text>
     <div class="header-right">
       <a href="/">Home</a>
-      <a href="/">Dashboard</a>
+      <a href="/dashboard">Dashboard</a>
       {{#if logged_in}}
       <a id="logout" href="/">Logout</a>
       {{else}}
@@ -23,7 +23,6 @@
       {{{body}}}
     </main>
 
-    <footer> </footer>
   </body>
   {{#if logged_in}}
   <script src="/js/logout.js"></script>

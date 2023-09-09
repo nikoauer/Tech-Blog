@@ -51,10 +51,26 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
+router.get('/dashboard', async (req, res) => {
+  try {
+      const userId = req.session.logged_in
 
-// router.get('/', (req, res) => {
-//     res.render('home')
-// })
+      const usersPosts = await Blogpost.findAll({
+      where: { user_id: userId }
+      })
+
+      const Posts = usersPosts.map((post) => post.get({ plain: true }));
+
+      console.log(Posts)
+      res.render('dashboard', {
+      ...Posts,
+      logged_in: req.session.logged_in
+    })
+    console.log("THIS IS WORKING!!!!!!!!!!!!!!!!!!!!!");
+  } catch (err) {
+    console.log(err)
+  }
+})
 
 router.get('/login', (req, res) => {
     res.render('login')

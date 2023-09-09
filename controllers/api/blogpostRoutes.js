@@ -1,1 +1,0 @@
- console.log("blogpost routes are connected")

@@ -9,15 +9,17 @@
     </div>
 </div>
 
-<div id="addComment">
+
   {{#if logged_in}}
+  <div id="addComment">
     <form id="add-comment">
       <input type="text" id="description" placeholder="Add a comment"/>
       <button type="submit">Comment</button>
     </form>
-    <script src ="/js/add-comment.js"></script>
-  {{/if}}
+        <script src ="/js/add-comment.js"></script>
 </div>
+  {{/if}}
+
 
 <h2 id="commentTitle">Comments</h2>
   {{#each Comments}}
