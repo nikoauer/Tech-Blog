@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { Blogpost, User, Comments } = require('../models/index')
+const withAuth = require("../utils/auth")
 
 //localhost:3001/
 // this route displays the home page blogposts with the title and date created
@@ -40,7 +41,7 @@ router.get('/blogpost/:id', async (req, res) => {
     });
 
     const Blogposts = Blogpostdata.get({ plain: true });
-    console.log(`=======================================================\n==============================================`)
+    console.log("Successfully displaying blogpost")
     res.render('blogpost', {
       ...Blogposts,
       logged_in: req.session.logged_in
@@ -51,20 +52,19 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
-router.get('/dashboard', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-      const userId = req.session.logged_in
+      const userId = req.session.user_id
 
       const usersPosts = await Blogpost.findAll({
       where: { user_id: userId }
       })
 
-      const Posts = usersPosts.map((post) => post.get({ plain: true }));
+      const Posts = usersPosts.map(post => post.get({ plain: true }));
 
       console.log(Posts)
       res.render('dashboard', {
-      ...Posts,
-      logged_in: req.session.logged_in
+        Posts: Posts,
     })
     console.log("THIS IS WORKING!!!!!!!!!!!!!!!!!!!!!");
   } catch (err) {

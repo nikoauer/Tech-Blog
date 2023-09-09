@@ -9,7 +9,7 @@ router.post("/", withAuth, async(req,res)=>{
         res.json(newPost)
     } catch (error) {
         console.log(error)
-        res.status(400).json("==========================/n/===================Backend blogpost post not working")
+        res.status(400).json("Backend blogpost post not working")
     }
 })
 
