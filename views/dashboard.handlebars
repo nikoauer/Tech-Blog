@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog Post Form</title>
   </head>
 
   <body>
@@ -12,6 +11,8 @@
         <h2>{{title}}</h2>
         <p id="date">{{format_date date_created}}</p>
         <p>{{description}}</p>
+          <button class="delete-button" data-postid="{{post.id}}">Delete</button>
+          <button class="update-button" data-postid="{{post.id}}">Update</button>
       </div>
     {{/each}}
     
