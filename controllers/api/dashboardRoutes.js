@@ -28,4 +28,25 @@ router.delete('/delete-post', async (req, res) => {
 });
 
 
+router.put('/update-post/:postId', async (req, res) => {
+    try {
+      const postId = req.params.postId;
+      const { title, description } = req.body;
+
+      const updatedPost = await Blogpost.update(
+        { title, description },
+        { where: { id: postId } }
+      );
+  
+      if (updatedPost[0] === 1) {
+        res.sendStatus(200); 
+      } else {
+        res.status(404).send("Post not found");
+      }
+    } catch (error) {
+      console.error(error);
+      res.sendStatus(500);
+    }
+  });
+
 module.exports = router

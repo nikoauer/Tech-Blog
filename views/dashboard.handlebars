@@ -10,10 +10,17 @@
       <div class="center">
         <h2>{{title}}</h2>
         <p id="date">{{format_date date_created}}</p>
-        <p>{{description}}</p>
+        <p class="info">{{description}}</p>
           <button class="delete-button" data-postid={{id}}>Delete</button>
           <button class="update-button" data-postid={{id}}>Update</button>
       </div>
+    <div class="update-form" style="display:none;">
+      <form class="blogpost-update-form">
+        <input type="text" class="update-title" placeholder="New title" required /><br /><br />
+        <textarea class="update-description" rows="6" cols="70" placeholder="Type your updated blogpost here" required></textarea><br /><br />
+        <input type="submit" class="save-button" value="Save Changes" />
+      </form>
+    </div>
     {{/each}}
     
     <div id="addButton">
@@ -39,4 +46,5 @@
   </body>
   <script src="/js/add-blogpost.js"></script>
   <script src="/js/delete-blogpost.js"></script>
+  <script src="/js/update-blogpost.js"></script>
 </html>

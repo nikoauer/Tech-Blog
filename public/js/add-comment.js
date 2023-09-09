@@ -19,14 +19,12 @@ async function handleAddComment(event) {
             });
 
             if (!response.ok) {
-                console.log('bad')
                 throw new Error('Network response was not ok');
             }
-            console.log('great!')
+            window.location.reload();
             const data = await response.json();
             console.log(data)
             // Handle successful response data
-
         } catch (error) {
             // Handle error
             console.error('Error:', error);

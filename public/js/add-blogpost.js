@@ -29,6 +29,7 @@ async function handleAddBlogposts(event) {
             });
 
             if (response.ok) {
+                window.location.reload();
                 console.log('Status 200: Fetch was successful to the API');
             } else {
                 throw new Error(`Error ${response.status}: ${response.statusText}`);
