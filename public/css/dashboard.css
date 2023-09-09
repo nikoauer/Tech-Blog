@@ -1,0 +1,98 @@
+.center {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #date {
+    font-size: small;
+  }
+
+  #addButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  button {
+    width: 15%;
+    margin-top: 5px;
+    padding: 10px;
+    font-size: 16px;
+    margin-left: 0px;
+    border-radius: 30px;
+    outline: none;
+    border: none;
+    background-color: rgb(184, 184, 184);
+  }
+
+  button:hover {
+    background-color: rgb(1, 158, 46);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+
+  #post-form {
+    margin: auto;
+    width: 70%;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    padding: 10 50 10 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  #submitButton {
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    border: none;
+    background-color: rgb(184, 184, 184);
+  }
+
+  #submitButton:hover {
+    background-color: rgb(1, 158, 46);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+
+  #titleBox {
+    margin: auto;
+    width: fit-content;
+  }
+
+  #descriptionBox {
+    margin: auto;
+    width: fit-content;
+  }
+
+  #buttonSpacing {
+    margin: auto;
+    width: fit-content;
+  }
+
+  #title {
+    line-height: 25px;
+    border-radius: 30px;
+    padding: 2px;
+    padding-left: 10px;
+    font-size: larger;
+    border: solid gray;
+    width: 300px;
+  }
+
+  #description {
+    font-family: sans-serif;
+    font-size: 16px;
+    padding: 2%;
+    border-radius: 5px;
+    border: solid gray;
+  }

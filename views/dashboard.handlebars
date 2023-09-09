@@ -1,5 +1,5 @@
 <html lang="en">
-
+<link rel="stylesheet" href="/css/dashboard.css"/>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,25 +8,30 @@
 
   <body>
     {{#each Posts as |post|}}
-      <div>
+      <div class="center">
         <h2>{{title}}</h2>
-        <p>{{format_date date_created}}</p>
+        <p id="date">{{format_date date_created}}</p>
         <p>{{description}}</p>
       </div>
     {{/each}}
-
-    <button id="add-post-button">Add Post</button>
+    
+    <div id="addButton">
+            <button id="add-post-button">Add Post</button>
+    </div>
 
     <div id="post-form" style="display:none;">
       <form id="blogpost-form">
-        <label for="title">Title:</label>
-        <input type="text" id="title" required /><br /><br />
-
-        <label for="description">Content:</label><br />
-        <textarea id="description" rows="6" cols="70" required></textarea><br
-        /><br />
-
-        <input type="submit" value="Submit" />
+        <div id="titleBox">
+            <input type="text" id="title" placeholder="Post title" required /><br /><br />
+        </div>
+        
+        <div id="descriptionBox">
+            <textarea id="description" rows="6" cols="70" placeholder="Type your blogpost in here" required></textarea><br
+            /><br />
+        </div>
+        <div id="buttonSpacing">
+            <input id="submitButton" type="submit" value="Submit" />
+        </div>
       </form>
     </div>
 
