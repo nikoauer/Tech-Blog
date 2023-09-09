@@ -1,13 +1,15 @@
 const addButton = document.getElementById('add-post-button');
 const formContainer = document.getElementById('post-form');
 
+
 addButton.addEventListener('click', function() {
             addButton.style.display = 'none';
             formContainer.style.display = 'block';
         });
 
 document.getElementById('blogpost-form').addEventListener('submit', handleAddBlogposts);
-            
+
+//function is responsible for sending a fetch request to the back end about adding a blogpost
 async function handleAddBlogposts(event) {
     event.preventDefault();
     try {
@@ -27,7 +29,7 @@ async function handleAddBlogposts(event) {
                     description: description
                 })
             });
-
+            // if response is ok reload page to display new post 
             if (response.ok) {
                 window.location.reload();
                 console.log('Status 200: Fetch was successful to the API');

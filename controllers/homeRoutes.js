@@ -2,16 +2,13 @@ const router = require('express').Router();
 const { Blogpost, User, Comments } = require('../models/index')
 const withAuth = require("../utils/auth")
 
-//localhost:3001/
 // this route displays the home page blogposts with the title and date created
 router.get('/', async (req, res) => {
     try {
       const Blogpostdata = await Blogpost.findAll();
   
-      // Serialize data so the template can read it
       const Blogposts = Blogpostdata.map((blogpost) => blogpost.get({ plain: true }));
-  
-      // Pass serialized data and session flag into template
+
       res.render('home', { 
         Blogposts, 
         logged_in: req.session.logged_in 
@@ -21,7 +18,7 @@ router.get('/', async (req, res) => {
     }
   });
 
-
+// this route displays a specific blogpost if clicked on 
 router.get('/blogpost/:id', async (req, res) => {
   try {
     const Blogpostdata = await Blogpost.findByPk(req.params.id, {
@@ -52,6 +49,7 @@ router.get('/blogpost/:id', async (req, res) => {
   }
 });
 
+//this route displays the user with all the blogpost they have posted, respective to their login credentials
 router.get('/dashboard', withAuth, async (req, res) => {
   try {
       const userId = req.session.user_id
@@ -77,8 +75,8 @@ router.get('/login', (req, res) => {
     res.render('login')
 })
 
+// If the user is already logged in, redirect the request to another route
 router.get('/login', async (req,res) => {
-    // If the user is already logged in, redirect the request to another route
     if (req.session.logged_in) {
         res.redirect('/login');
         return;

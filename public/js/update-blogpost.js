@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
     // Populate input fields with current post content
     const currentTitle = postElement.querySelector('h2').textContent;
-
-  
+    
     updateTitleInput.value = currentTitle;
     updateDescriptionTextarea.value = '';
   
@@ -32,7 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const updateTitle = updateTitleInput.value;
         const updateDescription = updateDescriptionTextarea.value;
-  
+        
+        // send a fetch request to back end with respective blogpost id 
         const response = await fetch(`/api/dashboard/update-post/${postId}`, {
           method: 'PUT',
           headers: {
@@ -40,7 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
           },
           body: JSON.stringify({ title: updateTitle, description: updateDescription })
         });
-  
+        
+        //if response ok then update the post with the new data
         if (response.ok) {
           console.log('Post updated successfully');
           window.location.reload();

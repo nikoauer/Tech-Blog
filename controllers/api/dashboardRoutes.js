@@ -2,6 +2,7 @@ const { Blogpost } = require("../../models")
 const withAuth = require("../../utils/auth")
 const router = require("express").Router()
 
+//this route will create a new blogpost, taking user input from the frontend
 router.post("/", withAuth, async(req,res)=>{
     try {
         const newPost = await Blogpost.create({...req.body, user_id: req.session.user_id})
@@ -12,6 +13,7 @@ router.post("/", withAuth, async(req,res)=>{
     }
 })
 
+//this route will delete the respective post
 router.delete('/delete-post', async (req, res) => {
     try {
         const postId = req.body.Blogpost_id;
@@ -27,7 +29,7 @@ router.delete('/delete-post', async (req, res) => {
     }
 });
 
-
+//this route is responsible for taking in front end input and updating the post with the contents
 router.put('/update-post/:postId', async (req, res) => {
     try {
       const postId = req.params.postId;

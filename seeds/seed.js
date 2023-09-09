@@ -4,6 +4,7 @@ const { User, Blogpost } = require('../models/index');
 const blogpostData = require('./Blogpostdata.json');
 const userData = require('./userdata.json');
 
+//seeds the database with mock users and blogposts retrieved from userdata and blogpostdata
 const seedData = async () => {
     await sequelize.sync({ force: true })
 

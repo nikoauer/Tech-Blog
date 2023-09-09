@@ -3,11 +3,14 @@ document.getElementById('add-comment').addEventListener('submit', handleAddComme
 console.log(window.location)
 var Blogpost_id = window.location.pathname.split("/")[2]
 
+//this function adds comments by a fetch request to the back end
 async function handleAddComment(event) {
     event.preventDefault();
 
+    //confirm the input is there
     var description = document.getElementById('description').value.trim();
 
+    // send description to backend 
     if (description !== '') {
         try {
             const response = await fetch('/api/comments', {
@@ -21,10 +24,11 @@ async function handleAddComment(event) {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
+            // if response ok then reload page to display new comment 
             window.location.reload();
             const data = await response.json();
             console.log(data)
-            // Handle successful response data
+
         } catch (error) {
             // Handle error
             console.error('Error:', error);
